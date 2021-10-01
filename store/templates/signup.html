@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+            <h3 class="alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="POST">
+                {% csrf_token %}
+
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                     {{error}}
+                     </div>
+                {% endif %}
+
+                 <!-- Firstname -->
+            <div class="from-group">
+                <label for="">First Name</label>
+                <input type="text" name="first_name"
+                       id="" value="{{values.first_name}}"
+                       class="form-control form-control-sm"
+                       placeholder="">
+            </div>
+
+                <!-- Lastname -->
+            <div class="from-group">
+                <label for="">Lastname</label>
+                <input type="text" name="last_name"
+                       id="" value="{{values.last_name}}"
+                       class="form-control form-control-sm">
+            </div>
+
+                <!-- Email -->
+            <div class="from-group">
+                <label for="">Email</label>
+                <input  required type="Email" name="email"
+                        id=""
+                        value="{{values.email}}"
+                        class="form-control form-control-sm"
+                        placeholder="example@gmail.com">
+            </div>
+
+                 <!-- ContactNo -->
+            <div class="from-group">
+                <label for="">ContactNo</label>
+                <input type="number" name="phone"
+                       id="" class="form-control form-control-sm"
+                       value="{{values.contactno}}"
+                       placeholder="9876543201">
+            </div>
+
+                <!-- Password -->
+            <div class="from-group">
+                <label for="">Password</label>
+                <input type="password"
+                       name="password"
+                       id=""
+                       class="form-control form-control-sm"
+                       placeholder="********">
+            </div>
+                <div class=",mb-3 form-check">
+
+                </div>
+
+                <div class="from-group p-4">
+                  <input class="btn btn-sm btn-info" type="submit" value="Create An Account">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
